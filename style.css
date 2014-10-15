@@ -1,0 +1,43 @@
+@font-face {
+font-family: MuseoSans;
+src: url("MuseoSans_500.otf") format("opentype");
+}
+h1{
+font-family: MuseoSans,Arial,Helvetica,sans-serif;
+text-shadow: 0 2px 0 rgba(79,13,13,.75);
+padding: 10px 5px 0 5px;
+text-align: center;
+}
+#header{
+display: inline-block;
+background: url("top-button.png") no-repeat;
+width: 319px;
+height: 92px;
+font-family: MuseoSans,Arial,Helvetica,sans-serif;
+font-size: 14px;
+color: #fff;
+}
+#content{
+width: 300px;
+height: auto;
+}
+#footer{
+display: inline-block;
+background: url("top-button.png") no-repeat;
+width: 319px;
+height: 92px;
+font-family: MuseoSans,Arial,Helvetica,sans-serif;
+font-size: 10px;
+color: #fff;
+text-shadow: 0 2px 0 rgba(79,13,13,.75);
+padding: 10px 5px 10px 5px;
+text-align: right;
+}
+#footer_content{
+font-family: MuseoSans,Arial,Helvetica,sans-serif;
+font-size: 10px;
+color: #fff;
+text-shadow: 0 2px 0 rgba(79,13,13,.75);
+padding: 10px 20px 10px 5px;
+text-align: right;
+}
