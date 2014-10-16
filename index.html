@@ -16,17 +16,33 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
 	<!-- Latest compiled and minified JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   
 	<script>
   $(document).ready(function() {
     $( "#tool" ).submit(function( event ) {
-      //alert( "Handler for .submit() called." );
-      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result'><span class='glyphicon glyphicon-hand-right'></span> <strong>Result:</strong> Angle: 125 Distance: 350</div></div>" );
+    
+    var pos =  $('input[name=enemyPosition]:checked', '#tool').val();
+    var cdist = $("#chasDistance").val();
+    var cangle = $("#chasAngle").val();
+    var edist = $("#enemyDistance").val();
+    var eangle = $("#enemyAngle").val();
+    
+    // Enemy is on the left side
+    if ($('input[name=enemyPosition]:checked', '#tool').val() == 0){
+      //alert('Your book is overdue.'); 
+    }
+    // Enemy is on the right side
+    else {
+      //alert('Your book is overdueeeeeee.'); 
+    }
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + "</div>" );
       event.preventDefault();
     });
-    //alert("Your book is overdue.");
+    $("form").on("reset",function(){
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'></div>" );
+    });
   });
   </script>
 </head>
@@ -40,20 +56,19 @@
   </div>
   <div id="resultLayout" style="padding-bottom: 20px;">
     <div class="row">
-      <div class="col-md-12" id="result">
-    </div>
+      <div class='col-md-12' id='result' style="height: 20px;"></div>
   </div>
   <form class="form-horizontal" role="form" id="tool">
     <div class="form-group">
-      <label for="enemyDirection" class="col-md-2 col-xs-2 control-label">Enemy position</label>
-      <div class="col-md-5 col-xs-5">
+      <label for="enemyPosition" class="col-md-2 col-xs-2 control-label">Enemy position</label>
+      <div class="col-md-2 col-xs-5">
         <label class="radio-inline">
-          <input type="radio" name="enemyDirection" id="left" value="left"> left
+          <input type="radio" name="enemyPosition" id="left" value="0"> left
         </label>
       </div>
-      <div class="col-md-5 col-xs-5">
+      <div class="col-md-2 col-xs-5">
         <label class="radio-inline">
-          <input type="radio" name="enemyDirection" id="right" value="right"> right
+          <input type="radio" name="enemyPosition" id="right" value="1"> right
         </label>
       </div>
     </div>
