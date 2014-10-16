@@ -21,32 +21,65 @@
 </head>
 
 <body>
-<div class="row">
-  <div class="col-md-12">
-    <h1 class="page-header">CHAS Spotting Tool</h1>
-  </div>
-</div>
-<div class="row">
-  <table class="table table-bordered table-hover table-condensed">
-    <thead>
-      <th>Projektname</th>
-      <th>Aktionen</th>
-    </thead>
-    <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-    </tbody>
-  </table>
-</div>
-<footer>
+<div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <p>Developed by Brain and INKorgnito</p>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h1 class="page-header">CHAS Spotting Tool</h1>
     </div>
   </div>
-</footer>
-
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="enemyDirection" class="col-sm-2 control-label">Enemy position</label>
+      <div class="col-sm-10">
+        <label class="radio-inline">
+          <input type="radio" name="enemyDirection" id="left" value="left"> left
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="enemyDirection" id="right" value="right"> right
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-2 col-sm-offset-2">CHAS</div>
+      <div class="col-sm-2">Enemy</div>
+    </div>
+    <div class="form-group">
+      <label for="distance" class="col-sm-2 control-label">Distance</label>
+      <div class="col-sm-2">
+        <input type="number" step="1" class="form-control" id="chasDistance" placeholder="numbers only">
+      </div>
+      <div class="col-sm-2">
+        <input type="number" step="1" class="form-control" id="enemyDistance" placeholder="numbers only">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="angle" class="col-sm-2 control-label">Angle</label>
+      <div class="col-sm-2">
+        <input type="number" step="1" class="form-control" id="chasAngle" placeholder="numbers only">
+      </div>
+      <div class="col-sm-2">
+        <input type="number" step="1" class="form-control" id="enemyAngle" placeholder="numbers only">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"></div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-2">
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Send</button>
+      </div>
+      <div class="col-sm-2">
+        <button type="reset" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Reset</button>
+      </div>
+    </div>
+  </form>
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Developed by Brain and INKorgnito</p>
+      </div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
