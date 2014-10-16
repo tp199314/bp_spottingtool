@@ -17,6 +17,18 @@
 
 	<!-- Latest compiled and minified JavaScript -->
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  
+	<script>
+  $(document).ready(function() {
+    $( "#tool" ).submit(function( event ) {
+      //alert( "Handler for .submit() called." );
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result'><span class='glyphicon glyphicon-hand-right'></span> <strong>Result:</strong> Angle: 125 Distance: 350</div></div>" );
+      event.preventDefault();
+    });
+    //alert("Your book is overdue.");
+  });
+  </script>
 </head>
 
 <body>
@@ -26,7 +38,12 @@
       <h1 class="page-header">CHAS Spotting Tool</h1>
     </div>
   </div>
-  <form class="form-horizontal" role="form">
+  <div id="resultLayout" style="padding-bottom: 20px;">
+    <div class="row">
+      <div class="col-md-12" id="result">
+    </div>
+  </div>
+  <form class="form-horizontal" role="form" id="tool">
     <div class="form-group">
       <label for="enemyDirection" class="col-md-2 col-xs-2 control-label">Enemy position</label>
       <div class="col-md-5 col-xs-5">
