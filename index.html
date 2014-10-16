@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="description" content="Spotting Tool for Breaking Point for better enemy spotting">
-  <meta name="author" content="Tobias Prein & Sebastian Haver">
+  <meta name="author" content="Tobias Prein alias Brain & Sebastian Haver alias INKorgnito">
   <meta name="keywords" content="Spotting Tool Breaking Point CHAS">
   
   <title>Breaking Point Spotting Tool</title>
@@ -23,15 +23,15 @@
   $(document).ready(function() {
     
     // initialization of used variables
-    var pos, cdist, cangle, edist, bangle, beta, dist, alpha, angle
+    var pos, cdist, cangle, edist, bangle, beta, dist, alpha, angle, gamma;
     
     $( "#tool" ).submit(function( event ) {
     
-      pos = parseInt($('input[name=enemyPosition]:checked', '#tool').val());
-      cdist = parseInt($("#chasDistance").val());
-      cangle = parseInt($("#chasAngle").val());
-      edist = parseInt($("#enemyDistance").val());
-      eangle = parseInt($("#enemyAngle").val());
+      pos = parseInt($( "input[name=enemyPosition]:checked", "#tool" ).val());
+      cdist = parseInt($( "#chasDistance" ).val());
+      cangle = parseInt($( "#chasAngle" ).val());
+      edist = parseInt($( "#enemyDistance" ).val());
+      eangle = parseInt($( "#enemyAngle" ).val());
       
       // calculate beta
       if(Math.max(cangle,eangle)-Math.min(cangle,eangle)<180){
@@ -50,9 +50,17 @@
       // calculate alpha
       alpha = (Math.acos((cdist*cdist-dist*dist-edist*edist)/(-2*dist*edist)))*180/Math.PI;
       
+      // calculate gamma
+      gamma = (Math.acos((edist*edist-cdist*cdist-dist*dist)/(-2*cdist*dist)))*180/Math.PI;
+      
       // Enemy is on the left side
-      if ($('input[name=enemyPosition]:checked', '#tool').val() == 0){
-        // TODO
+      if ($( 'input[name=enemyPosition]:checked', '#tool' ).val() == 0){
+        if((eangle+gamma)>360){
+          angle = eangle+gamma-360;
+        }
+        else{
+          angle = eangle+gamma;
+        }
       }
       // Enemy is on the right side
       else {
@@ -64,14 +72,14 @@
         }
       }
       
-      // debug
+      // debug - NOT left or right side specific
       //$( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + Math.round(dist) + ", alpha=" + Math.round(alpha) + ", ANGLE=" + Math.round(angle) + "</div>" );
       
       // final output
       $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
       event.preventDefault();
     });
-    $("form").on("reset",function(){
+    $( "form" ).on( "reset" ,function(){
       $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'></div>" );
     });
   });
