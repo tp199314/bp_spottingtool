@@ -55,21 +55,26 @@
       
       // Enemy is on the left side
       if ($( 'input[name=enemyPosition]:checked', '#tool' ).val() == 0){
-        if((eangle+gamma)>360){
-          angle = eangle+gamma-360;
+        if(cangle>=180){
+          angle = cangle-180+alpha;
         }
         else{
-          angle = eangle+gamma;
+          angle = cangle+180+alpha;
         }
       }
       // Enemy is on the right side
       else {
-        if((eangle+alpha)>360){
-          angle = eangle+alpha-360;
+        if(cangle>=180){
+          angle = cangle-180-alpha;
         }
         else {
-          angle = eangle+alpha;
+          angle = cangle+180-alpha;
         }
+      }
+      
+      // fix for angle output > 360
+      if(angle>360) {
+      	angle = angle-360;
       }
       
       // debug - NOT left or right side specific
