@@ -73,10 +73,10 @@
       }
       
       // debug - NOT left or right side specific
-      //$( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + Math.round(dist) + ", alpha=" + Math.round(alpha) + ", ANGLE=" + Math.round(angle) + "</div>" );
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + Math.round(dist) + ", alpha=" + Math.round(alpha) + ", ANGLE=" + Math.round(angle) + "</div>" );
       
       // final output
-      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
+      // $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
       event.preventDefault();
     });
     $( "form" ).on( "reset" ,function(){
