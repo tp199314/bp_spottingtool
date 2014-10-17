@@ -72,6 +72,11 @@
         }
       }
       
+      // when enemy and mate are in a line
+      if((cangle+eangle)==180){
+      	angle = 180;
+      }
+      
       // fix for angle output > 360
       if(angle>360) {
       	angle = angle-360;
