@@ -34,7 +34,7 @@
       eangle = parseInt($( "#enemyAngle" ).val());
       
       // calculate beta
-      if(Math.max(cangle,eangle)-Math.min(cangle,eangle)<180){
+      if(Math.max(cangle,eangle)-Math.min(cangle,eangle)<=180){
         beta = Math.max(cangle,eangle)-Math.min(cangle,eangle);
       }
       else {
