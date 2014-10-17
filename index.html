@@ -23,7 +23,7 @@
   $(document).ready(function() {
     
     // initialization of used variables
-    var pos, cdist, cangle, edist, bangle, beta, dist, alpha, angle, gamma;
+    var pos, cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma;
     
     $( "#tool" ).submit(function( event ) {
     
@@ -73,7 +73,7 @@
       }
       
       // debug - NOT left or right side specific
-      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + Math.round(dist) + ", alpha=" + Math.round(alpha) + ", ANGLE=" + Math.round(angle) + "</div>" );
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + "</div>" );
       
       // final output
       // $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
