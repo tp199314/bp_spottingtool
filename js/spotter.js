@@ -55,9 +55,14 @@ $(document).ready(function() {
       angle = 180;
     }
     
-    // fix for angle output >= 360
+    // fix for angle >= 360
     if(angle>=360){
       angle = angle-360;
+    }
+    
+    // fix for angle < 0
+    while(angle<0){
+      angle=angle+360;
     }
     
     // same angle
@@ -78,7 +83,7 @@ $(document).ready(function() {
     else if (parseInt(angle) > 247.5 && parseInt(angle) <= 292.5) { carddir = "W"; }
     else if (parseInt(angle) > 292.5 && parseInt(angle) <= 337.5) { carddir = "NW"; }
     else if (parseInt(angle) > 337.5 && parseInt(angle) <= 360) { carddir = "N"; }
-    else {carddir = "Because... fuck you!!!!111elf"}
+    else {carddir = "Are you kiddin me?!"}
           
     // debug - NOT left or right side specific
     // $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", carddir=" + carddir + "</div>" );
