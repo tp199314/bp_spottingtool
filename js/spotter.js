@@ -5,7 +5,7 @@ $(document).ready(function() {
   
   // debug mode
   // 0 = disabled; 1 = enabled
-  var debug = 0;
+  var debug = 1;
   
   $( "#tool" ).submit(function( event ) {
 
