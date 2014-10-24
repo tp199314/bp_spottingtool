@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
   // initialization of used variables
-  var pos, cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma, carddir;
+  var pos, cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma, carddir, side;
   
   $( "#tool" ).submit(function( event ) {
   
@@ -22,33 +22,54 @@ $(document).ready(function() {
     // degree to radiant radiant = grad * Math.PI / 180
     // radiant to degree grad = radiant * 180 / Math.PI
     
-    // calculate distance from mate to enemy
-    dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
-    
     // calculate alpha
     alpha = (Math.acos((cdist*cdist-dist*dist-edist*edist)/(-2*dist*edist)))*180/Math.PI;
     
     // calculate gamma
     gamma = (Math.acos((edist*edist-cdist*cdist-dist*dist)/(-2*cdist*dist)))*180/Math.PI;
     
-    // Enemy is on the left side
-    if ($( 'input[name=enemyPosition]:checked', '#tool' ).val() == 0){
-      if(cangle>=180){
-        angle = cangle-180+gamma;
+    // calculate enemyside
+    // 0 = left, 1 = right
+    if(cangle>0 && cangle <180){
+      if(eangle>cangle && eangle<cangle+180){
+        side = 1;
       }
       else{
-        angle = cangle+180+gamma;
+        side = 0;
       }
     }
-    // Enemy is on the right side
+    else{
+      if(eangle<cangle && eangle>cangle-180){
+        side = 0;
+      }
+      else{
+        side = 1;
+      }
+    }
+    
+    // Enemy is on the left side B11
+    if (side == 0){
+      if(cangle>180){
+        angle = cangle-180+gamma; // or alpha...
+      }
+      else{
+        angle = cangle+180+gamma; // or alpha...
+      }
+      dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
+    }
+    // Enemy is on the right side F11
     else {
-      if(cangle>=180){
+      if(cangle>180){
         angle = cangle-180-alpha;
       }
       else {
         angle = cangle+180-alpha;
       }
+      dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
     }
+    
+    // calculate distance from mate to enemy
+    
     
     // when enemy and mate are in a line
     if((cangle+eangle)==180){
