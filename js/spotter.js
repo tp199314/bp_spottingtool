@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
   // initialization of used variables
-  var cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma, carddir, side;
+  var cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma, dir, side;
   
   $( "#tool" ).submit(function( event ) {
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
       }
     }
     
-    // Enemy is on the left side B11
+    // Enemy is on the left side
     if (side == 0){
       if(cangle>180){
         angle = cangle-180+gamma; // or alpha...
@@ -56,7 +56,7 @@ $(document).ready(function() {
       }
       dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
     }
-    // Enemy is on the right side F11
+    // Enemy is on the right side
     else {
       if(cangle>180){
         angle = cangle-180-alpha;
@@ -93,27 +93,27 @@ $(document).ready(function() {
       }
     }
     
-    // show cardinal direction
-    if (parseInt(angle) > 0 && parseInt(angle) <= 22.9) { carddir = "N"; }
-    else if (parseInt(angle) > 22.5 && parseInt(angle) <= 67.5) { carddir = "NE"; }
-    else if (parseInt(angle) > 67.5 && parseInt(angle) <= 112.5) { carddir = "E"; }
-    else if (parseInt(angle) > 112.5 && parseInt(angle) <= 157.5) { carddir = "SE"; }
-    else if (parseInt(angle) > 157.5 && parseInt(angle) <= 202.5) { carddir = "S"; }
-    else if (parseInt(angle) > 202.5 && parseInt(angle) <= 247.5) { carddir = "SW"; }
-    else if (parseInt(angle) > 247.5 && parseInt(angle) <= 292.5) { carddir = "W"; }
-    else if (parseInt(angle) > 292.5 && parseInt(angle) <= 337.5) { carddir = "NW"; }
-    else if (parseInt(angle) > 337.5 && parseInt(angle) <= 360) { carddir = "N"; }
-    else {carddir = "Are you kiddin me?!"}
+    // calculate direction
+    if (parseInt(angle) > 0 && parseInt(angle) <= 22.9) { dir = "N"; }
+    else if (parseInt(angle) > 22.5 && parseInt(angle) <= 67.5) { dir = "NE"; }
+    else if (parseInt(angle) > 67.5 && parseInt(angle) <= 112.5) { dir = "E"; }
+    else if (parseInt(angle) > 112.5 && parseInt(angle) <= 157.5) { dir = "SE"; }
+    else if (parseInt(angle) > 157.5 && parseInt(angle) <= 202.5) { dir = "S"; }
+    else if (parseInt(angle) > 202.5 && parseInt(angle) <= 247.5) { dir = "SW"; }
+    else if (parseInt(angle) > 247.5 && parseInt(angle) <= 292.5) { dir = "W"; }
+    else if (parseInt(angle) > 292.5 && parseInt(angle) <= 337.5) { dir = "NW"; }
+    else if (parseInt(angle) > 337.5 && parseInt(angle) <= 360) { dir = "N"; }
+    else {dir = "Are you kiddin me?!"}
           
     // debug - NOT left or right side specific
-    $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", carddir=" + carddir + ", side=" + side + "</div>" );
+    $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", dir=" + dir + ", side=" + side + "</div>" );
     
     // final output
     // if((cangle==eangle) && (cdist==edist)) {
     //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:red'>Holy crap! Your buddy is in close combat!</div>" );
     // }
     // else {
-    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Cardinal Direction: " + carddir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
+    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Direction: " + dir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
     // }
     event.preventDefault();
   });
