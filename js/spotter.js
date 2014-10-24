@@ -52,10 +52,10 @@ $(document).ready(function() {
     // Enemy is on the left side
     if (side == 0){
       if(cangle>180){
-        angle = cangle-180+gamma; // or alpha...
+        angle = cangle-180+gamma;
       }
       else{
-        angle = cangle+180+gamma; // or alpha...
+        angle = cangle+180+gamma;
       }
     }
     // Enemy is on the right side
@@ -67,7 +67,6 @@ $(document).ready(function() {
         angle = cangle+180-alpha;
       }
     }
-    
     
     // when enemy and mate are in a line
     if((cangle+eangle)==180){
@@ -105,15 +104,15 @@ $(document).ready(function() {
     else {dir = "Are you kiddin me?!"}
           
     // debug - NOT left or right side specific
-    $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", dir=" + dir + ", side=" + side + "</div>" );
+    // $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", dir=" + dir + ", side=" + side + "</div>" );
     
     // final output
-    // if((cangle==eangle) && (cdist==edist)) {
-    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:red'>Holy crap! Your buddy is in close combat!</div>" );
-    // }
-    // else {
-    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Direction: " + dir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
-    // }
+    if((cangle==eangle) && (cdist==edist)) {
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:red'>Holy crap! Your buddy is in close combat!</div>" );
+    }
+    else {
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Direction: " + dir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
+    }
     event.preventDefault();
   });
   $( "form" ).on( "reset" ,function(){
