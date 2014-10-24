@@ -20,6 +20,9 @@ $(document).ready(function() {
     
     // degree to radiant radiant = grad * Math.PI / 180
     // radiant to degree grad = radiant * 180 / Math.PI
+
+    // calculate distance from mate to enemy
+    dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
     
     // calculate alpha
     alpha = (Math.acos((cdist*cdist-dist*dist-edist*edist)/(-2*dist*edist)))*180/Math.PI;
@@ -54,7 +57,6 @@ $(document).ready(function() {
       else{
         angle = cangle+180+gamma; // or alpha...
       }
-      dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
     }
     // Enemy is on the right side
     else {
@@ -64,10 +66,7 @@ $(document).ready(function() {
       else {
         angle = cangle+180-alpha;
       }
-      dist = Math.sqrt(cdist*cdist+edist*edist-2*cdist*edist*Math.cos(beta*Math.PI/180));
     }
-    
-    // calculate distance from mate to enemy
     
     
     // when enemy and mate are in a line
