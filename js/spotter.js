@@ -107,7 +107,7 @@ $(document).ready(function() {
     else {carddir = "Are you kiddin me?!"}
           
     // debug - NOT left or right side specific
-    $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", carddir=" + carddir + "", side=" + side + "</div>" );
+    $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", carddir=" + carddir + ", side=" + side + "</div>" );
     
     // final output
     // if((cangle==eangle) && (cdist==edist)) {
