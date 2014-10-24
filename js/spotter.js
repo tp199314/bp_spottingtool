@@ -72,16 +72,6 @@ $(document).ready(function() {
       }
     }
     
-    // fix for angle >= 360
-    while(angle>=360){
-      angle = angle-360;
-    }
-    
-    // fix for angle < 0
-    while(angle<0){
-      angle = angle+360;
-    }
-    
     // same angle
     if(cangle==eangle){
       angle = cangle;
