@@ -87,7 +87,7 @@ $(document).ready(function() {
     }
     
     // calculate direction
-    if (parseInt(angle) > 0 && parseInt(angle) <= 22.9) { dir = "N"; }
+    if (parseInt(angle) >= 0 && parseInt(angle) <= 22.9) { dir = "N"; }
     else if (parseInt(angle) > 22.5 && parseInt(angle) <= 67.5) { dir = "NE"; }
     else if (parseInt(angle) > 67.5 && parseInt(angle) <= 112.5) { dir = "E"; }
     else if (parseInt(angle) > 112.5 && parseInt(angle) <= 157.5) { dir = "SE"; }
