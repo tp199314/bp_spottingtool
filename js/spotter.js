@@ -81,7 +81,7 @@ $(document).ready(function() {
     }
     
     // fix for lovely Haver who means a compass goes from 0 to 359,999 :$
-    if(cangle+eangle==180){
+    if(cangle+eangle==180 && cdist=edist){
       if(cangle>eangle){
         angle=0;
       }
@@ -89,7 +89,7 @@ $(document).ready(function() {
         angle=180
       }
     }
-    if(cangle+eangle-360==180){
+    if(cangle+eangle-360==180 && cdist=edist){
       if(cangle>eangle){
         angle=180;
       }
