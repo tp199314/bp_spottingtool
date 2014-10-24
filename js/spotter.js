@@ -5,7 +5,7 @@ $(document).ready(function() {
   
   // debug mode
   // 0 = disabled; 1 = enabled
-  var debug = 0;
+  var debug = 1;
   
   $( "#tool" ).submit(function( event ) {
 
@@ -79,6 +79,25 @@ $(document).ready(function() {
         angle = cangle+180;
       }
     }
+    
+    // fix for lovely Haver who means a compass goes from 0 to 359,999 :$
+    if(cangle+eangle==180){
+      if(cangle>eangle){
+        angle=0;
+      }
+      else{
+        angle=180
+      }
+    }
+    if(cangle+eangle-360==180){
+      if(cangle>eangle){
+        angle=180;
+      }
+      else{
+        angle=0
+      }
+    }
+    
     
     // fix for angle >= 360
     while(angle>=360){
