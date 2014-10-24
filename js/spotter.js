@@ -1,11 +1,10 @@
 $(document).ready(function() {
   
   // initialization of used variables
-  var pos, cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma, carddir, side;
+  var cdist, cangle, edist, eangle, beta, dist, alpha, angle, gamma, carddir, side;
   
   $( "#tool" ).submit(function( event ) {
-  
-    pos = parseInt($( "input[name=enemyPosition]:checked", "#tool" ).val());
+
     cdist = parseInt($( "#chasDistance" ).val());
     cangle = parseInt($( "#chasAngle" ).val());
     edist = parseInt($( "#enemyDistance" ).val());
@@ -107,15 +106,15 @@ $(document).ready(function() {
     else {carddir = "Are you kiddin me?!"}
           
     // debug - NOT left or right side specific
-    $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", pos=" + pos + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", carddir=" + carddir + ", side=" + side + "</div>" );
+    // $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> cdist=" + cdist + ", cangle=" + cangle + ", edist=" + edist + ", eangle=" + eangle + ", beta=" + beta + ", DIST=" + dist + ", alpha=" + alpha + ", ANGLE=" + angle + ", gamma=" + gamma + ", carddir=" + carddir + ", side=" + side + "</div>" );
     
     // final output
-    // if((cangle==eangle) && (cdist==edist)) {
-    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:red'>Holy crap! Your buddy is in close combat!</div>" );
-    // }
-    // else {
-    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Cardinal Direction: " + carddir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
-    // }
+    if((cangle==eangle) && (cdist==edist)) {
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:red'>Holy crap! Your buddy is in close combat!</div>" );
+    }
+    else {
+      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Cardinal Direction: " + carddir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
+    }
     event.preventDefault();
   });
   $( "form" ).on( "reset" ,function(){
