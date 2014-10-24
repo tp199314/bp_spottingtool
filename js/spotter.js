@@ -80,6 +80,16 @@ $(document).ready(function() {
       }
     }
     
+    // fix for angle >= 360
+    while(angle>=360){
+      angle = angle-360;
+    }
+    
+    // fix for angle < 0
+    while(angle<0){
+      angle = angle+360;
+    }
+    
     // calculate direction
     if (parseInt(angle) >= 0 && parseInt(angle) <= 22.9) { dir = "N"; }
     else if (parseInt(angle) > 22.5 && parseInt(angle) <= 67.5) { dir = "NE"; }
