@@ -69,9 +69,9 @@ $(document).ready(function() {
     }
     
     // when enemy and mate are in a line
-    if((cangle+eangle)==180){
-      angle = 180;
-    }
+    // if((cangle+eangle)==180){
+    //   angle = 180;
+    // }
     
     // fix for angle >= 360
     while(angle>=360){
