@@ -113,9 +113,9 @@ $(document).ready(function() {
     // if((cangle==eangle) && (cdist==edist)) {
     //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:red'>Holy crap! Your buddy is in close combat!</div>" );
     // }
-    else {
-      $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Cardinal Direction: " + carddir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
-    }
+    // else {
+    //   $( "div#result" ).replaceWith( "<div class='col-md-12' id='result' style='height: 20px;'><span class='glyphicon glyphicon-hand-right'></span> <strong style='color:green'>Result:</strong> Cardinal Direction: " + carddir + " Angle: " + Math.round(angle) + " Distance: " + Math.round(dist) + "</div>" );
+    // }
     event.preventDefault();
   });
   $( "form" ).on( "reset" ,function(){
